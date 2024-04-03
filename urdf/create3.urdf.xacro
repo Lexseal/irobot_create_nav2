@@ -1,16 +1,16 @@
 <?xml version="1.0" ?>
 <robot name="create3" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:include filename="$(find irobot_create_description)/urdf/bumper.urdf.xacro" />
-  <xacro:include filename="$(find irobot_create_description)/urdf/button.urdf.xacro" />
-  <xacro:include filename="$(find irobot_create_description)/urdf/caster.urdf.xacro" />
-  <xacro:include filename="$(find irobot_create_description)/urdf/common_properties.urdf.xacro"/>
-  <xacro:include filename="$(find irobot_create_description)/urdf/sensors/cliff_sensor.urdf.xacro"/>
-  <xacro:include filename="$(find irobot_create_description)/urdf/sensors/imu.urdf.xacro" />
-  <xacro:include filename="$(find irobot_create_description)/urdf/sensors/ir_intensity.urdf.xacro" />
-  <xacro:include filename="$(find irobot_create_description)/urdf/sensors/ir_opcode_receivers.urdf.xacro" />
-  <xacro:include filename="$(find irobot_create_description)/urdf/sensors/laser.urdf.xacro" />
-  <xacro:include filename="$(find irobot_create_description)/urdf/sensors/optical_mouse.urdf.xacro"/>
-  <xacro:include filename="$(find irobot_create_description)/urdf/wheel_with_wheeldrop.urdf.xacro" />
+  <xacro:include filename="$(find irobot_create_nav2)/urdf/bumper.urdf.xacro" />
+  <xacro:include filename="$(find irobot_create_nav2)/urdf/button.urdf.xacro" />
+  <xacro:include filename="$(find irobot_create_nav2)/urdf/caster.urdf.xacro" />
+  <xacro:include filename="$(find irobot_create_nav2)/urdf/common_properties.urdf.xacro"/>
+  <xacro:include filename="$(find irobot_create_nav2)/urdf/sensors/cliff_sensor.urdf.xacro"/>
+  <xacro:include filename="$(find irobot_create_nav2)/urdf/sensors/imu.urdf.xacro" />
+  <xacro:include filename="$(find irobot_create_nav2)/urdf/sensors/ir_intensity.urdf.xacro" />
+  <xacro:include filename="$(find irobot_create_nav2)/urdf/sensors/ir_opcode_receivers.urdf.xacro" />
+  <xacro:include filename="$(find irobot_create_nav2)/urdf/sensors/laser.urdf.xacro" />
+  <xacro:include filename="$(find irobot_create_nav2)/urdf/sensors/optical_mouse.urdf.xacro"/>
+  <xacro:include filename="$(find irobot_create_nav2)/urdf/wheel_with_wheeldrop.urdf.xacro" />
 
   <!-- Gazebo version -->
   <xacro:arg name="gazebo"                       default="classic" />
@@ -64,7 +64,7 @@
     <visual>
       <origin xyz="0 0 ${body_z_offset + base_link_z_offset}" rpy="0 0 ${pi/2}"/>
       <geometry>
-        <mesh filename="package://irobot_create_description/meshes/body_visual.dae" />
+        <mesh filename="package://irobot_create_nav2/meshes/body_visual.dae" />
       </geometry>
     </visual>
     <collision name="create3_base_collision">
@@ -88,8 +88,8 @@
   <xacro:bumper
       gazebo="$(arg gazebo)"
       namespace="$(arg namespace)"
-      visual_mesh="package://irobot_create_description/meshes/bumper_visual.dae"
-      collision_mesh="package://irobot_create_description/meshes/bumper_collision.dae">
+      visual_mesh="package://irobot_create_nav2/meshes/bumper_visual.dae"
+      collision_mesh="package://irobot_create_nav2/meshes/bumper_collision.dae">
     <origin xyz="0 0 ${bumper_offset_z  + base_link_z_offset}"/>
     <inertial>
       <origin xyz="${bumper_inertial_x} 0 ${bumper_inertial_z}"/>

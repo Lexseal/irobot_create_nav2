@@ -4,7 +4,7 @@ import launch_ros
 import os
 
 def generate_launch_description():
-    pkg_share = launch_ros.substitutions.FindPackageShare(package='irobot_create_description').find('irobot_create_description')
+    pkg_share = launch_ros.substitutions.FindPackageShare(package='irobot_create_nav2').find('irobot_create_nav2')
     default_model_path = os.path.join(pkg_share, 'urdf/create3.urdf.xacro')
     default_rviz_config_path = os.path.join(pkg_share, 'rviz/urdf_config.rviz')
 
@@ -41,8 +41,8 @@ def generate_launch_description():
                                             description='Absolute path to robot urdf file'),
         launch.actions.DeclareLaunchArgument(name='rvizconfig', default_value=default_rviz_config_path,
                                             description='Absolute path to rviz config file'),
-        joint_state_publisher_node,
-        joint_state_publisher_gui_node,
-        robot_state_publisher_node,
+        # joint_state_publisher_node,
+        # joint_state_publisher_gui_node,
+        # robot_state_publisher_node,
         rviz_node
     ])

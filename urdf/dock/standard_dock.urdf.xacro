@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot name="standard_dock" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:include filename="$(find irobot_create_description)/urdf/common_properties.urdf.xacro"/>
-  <xacro:include filename="$(find irobot_create_description)/urdf/dock/ir_emitter.urdf.xacro"/>
+  <xacro:include filename="$(find irobot_create_nav2)/urdf/common_properties.urdf.xacro"/>
+  <xacro:include filename="$(find irobot_create_nav2)/urdf/dock/ir_emitter.urdf.xacro"/>
 
   <!-- Gazebo version -->
   <xacro:arg name="gazebo"         default="classic" />
@@ -16,7 +16,7 @@
     <visual>
       <origin xyz="0 0 ${z_offset}"/>
       <geometry>
-        <mesh filename="package://irobot_create_description/meshes/dock/visual.dae"/>
+        <mesh filename="package://irobot_create_nav2/meshes/dock/visual.dae"/>
       </geometry>
     </visual>
     <collision>

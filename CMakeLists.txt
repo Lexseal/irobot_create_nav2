@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(irobot_create_description)
+project(irobot_create_nav2)
 
 find_package(ament_cmake REQUIRED)
 
@@ -10,6 +10,8 @@ install(
     urdf
     launch
     rviz
+    map
+    param
   DESTINATION
     share/${PROJECT_NAME}/
 )
