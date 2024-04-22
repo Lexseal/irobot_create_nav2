@@ -32,8 +32,11 @@ def generate_launch_description():
             get_package_share_directory('irobot_create_nav2'),
             'map',
             'lab_map.yaml'))
+
+    model = "empty_belly"
+
     default_model_path = os.path.join(get_package_share_directory('irobot_create_nav2'),
-                                      'urdf/create3.urdf.xacro')
+                                      f'urdf/{model}.urdf')
 
     # param_file_name = str(LaunchConfiguration('params_file', default='create.yaml'))
     param_dir = LaunchConfiguration(
@@ -41,7 +44,7 @@ def generate_launch_description():
         default=os.path.join(
             get_package_share_directory('irobot_create_nav2'),
             'param',
-            'create.yaml'))
+            f'{model}.yaml'))
 
     # need this for the laser to base_link transform
     robot_state_publisher_node = Node(
