@@ -55,11 +55,6 @@ def generate_launch_description():
 
     nav2_launch_file_dir = os.path.join(get_package_share_directory('nav2_bringup'), 'launch')
 
-    rviz_config_dir = os.path.join(
-        get_package_share_directory('nav2_bringup'),
-        'rviz',
-        'nav2_default_view.rviz')
-
     return LaunchDescription([
         DeclareLaunchArgument(
             'map',
@@ -77,7 +72,7 @@ def generate_launch_description():
             description='Use simulation (Gazebo) clock if true'),
 
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([nav2_launch_file_dir, '/bringup_launch.py']),
+            PythonLaunchDescriptionSource([nav2_launch_file_dir, '/localization_launch.py']),
             launch_arguments={
                 'map': map_dir,
                 'use_sim_time': use_sim_time,

@@ -120,7 +120,7 @@
 
   <!-- laser -->
   <xacro:laser gazebo="$(arg gazebo)" namespace="$(arg namespace)">
-    <origin xyz="0.075 -0.03 ${0.05 + base_link_z_offset}"/>
+    <origin xyz="0.075 -0.03 ${0.05 + base_link_z_offset}" rpy="0 0 3.14" />
   </xacro:laser>
 
   <!-- <xacro:if value="${'$(arg gazebo)' == 'classic'}">
