@@ -33,7 +33,7 @@ def generate_launch_description():
             'map',
             'lab_map.yaml'))
 
-    model = "create3"  # choices: create3, empty_belly
+    model = "empty_belly"  # choices: create3, empty_belly
 
     default_model_path = os.path.join(get_package_share_directory('irobot_create_nav2'),
                                       f'urdf/{model}.urdf')

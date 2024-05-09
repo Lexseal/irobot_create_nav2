@@ -5,7 +5,7 @@ import os
 
 def generate_launch_description():
     pkg_share = launch_ros.substitutions.FindPackageShare(package='irobot_create_nav2').find('irobot_create_nav2')
-    default_model_path = os.path.join(pkg_share, 'urdf/create3.urdf')
+    default_model_path = os.path.join(pkg_share, 'urdf/empty_belly.urdf')
     default_rviz_config_path = os.path.join(pkg_share, 'rviz/urdf_config.rviz')
 
     robot_state_publisher_node = launch_ros.actions.Node(
