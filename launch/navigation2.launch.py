@@ -54,6 +54,8 @@ def generate_launch_description():
     )
 
     nav2_launch_file_dir = os.path.join(get_package_share_directory('nav2_bringup'), 'launch')
+    rplidar_launch_file_dir = os.path.join(get_package_share_directory("rplidar_ros"), "launch")
+
 
     rviz_config_dir = os.path.join(
         get_package_share_directory('nav2_bringup'),
@@ -82,6 +84,10 @@ def generate_launch_description():
                 'map': map_dir,
                 'use_sim_time': use_sim_time,
                 'params_file': param_dir}.items(),
+        ),
+
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource([rplidar_launch_file_dir, '/rplidar_a1_launch.py'])
         ),
 
         # Node(
