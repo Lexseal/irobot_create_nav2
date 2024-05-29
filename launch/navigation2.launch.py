@@ -90,13 +90,10 @@ def generate_launch_description():
             PythonLaunchDescriptionSource([rplidar_launch_file_dir, '/rplidar_a1_launch.py'])
         ),
 
-        # Node(
-        #     package='rviz2',
-        #     executable='rviz2',
-        #     name='rviz2',
-        #     arguments=['-d', rviz_config_dir],
-        #     parameters=[{'use_sim_time': use_sim_time}],
-        #     output='screen'),
+        Node(
+            package='irobot_create_nav2',
+            executable='rs_to_scan.py',
+            name='rs_to_scan'),
 
         robot_state_publisher_node
     ])
