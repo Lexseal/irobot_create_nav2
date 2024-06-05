@@ -57,11 +57,6 @@ def generate_launch_description():
     rplidar_launch_file_dir = os.path.join(get_package_share_directory("rplidar_ros"), "launch")
 
 
-    rviz_config_dir = os.path.join(
-        get_package_share_directory('nav2_bringup'),
-        'rviz',
-        'nav2_default_view.rviz')
-
     return LaunchDescription([
         DeclareLaunchArgument(
             'map',
@@ -83,6 +78,7 @@ def generate_launch_description():
             launch_arguments={
                 'map': map_dir,
                 'use_sim_time': use_sim_time,
+                'slam': 'True',
                 'params_file': param_dir}.items(),
         ),
 
@@ -90,10 +86,10 @@ def generate_launch_description():
             PythonLaunchDescriptionSource([rplidar_launch_file_dir, '/rplidar_a1_launch.py'])
         ),
 
-        Node(
-            package='irobot_create_nav2',
-            executable='rs_to_scan.py',
-            name='rs_to_scan'),
+        # Node(
+        #     package='irobot_create_nav2',
+        #     executable='rs_to_scan.py',
+        #     name='rs_to_scan'),
 
         robot_state_publisher_node
     ])

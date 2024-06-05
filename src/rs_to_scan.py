@@ -19,14 +19,14 @@ class LaserFuser(Node):
 
     self.depth_image_sub = self.create_subscription(
       Image,
-      '/camera/aligned_depth_to_color/image_raw',
+      '/camera/depth/image_rect_raw',
       self.depth_image_callback,
       10
     )
 
     self.K_sub = self.create_subscription(
       CameraInfo,
-      '/camera/aligned_depth_to_color/camera_info',
+      '/camera/depth/camera_info',
       self.K_callback,
       10
     )
