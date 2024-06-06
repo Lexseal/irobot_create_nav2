@@ -74,3 +74,10 @@ The cgroup rules are needed for realsense camera to work.
 If you are using L515, please see the dockerfile on how to install proper version of the realsense library as it is discontinued.
 
 There is also a script to convert depth image into 2d lidar scan for either obstacle avoidance or SLAM. However, the realsense cameras have a high minimum range, so it is not very useful for obstacle avoidance.
+
+For localization, there are a couple of choices:
+1. The default nav2 uses AMCL. This is not accurate enough in practice and also requires an additional map. To build the map, you may run the cartographer package `ros2 launch turtlebot3_cartographer cartographer.launch.py resolution:=0.01`, drive it around with `ros2 run turtlebot3_teleop teleop_keyboard`. When you are satisfied with the map, save it with `ros2 run nav2_map_server map_saver_cli -f ~/ws_nav2/src/irobot_create_nav2/maps/map`.
+
+2. The second option is to use `slam_toolbox`. This is the current approach.
+
+3. One can also swap out `slam_toolbox` with `cartographer` if the odometry is not accurate enough. `cartogarpher` has their own odometry estimation.
